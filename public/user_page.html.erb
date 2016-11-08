@@ -2,15 +2,41 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>username / Repositories</title>
+    <title><%= @profile_info.user_info["login"] %> (<%= @profile_info.user_info["name"] %>)/ Repositories</title>
+    <link rel="stylesheet" href="/styles.css" media="screen">
   </head>
   <body>
-    <h1>Github Profile Finder</h1>
     <main>
       <aside class="profile-info">
-        <%= @profile_info.user_info %>
+        <img src= '<%= @profile_info.user_info["avatar_url"] %>' alt="profile picture">
+        <h1><%= @profile_info.user_info["name"] %></h1>
+        <h2><%= @profile_info.user_info["login"] %></h2>
+        <div>
+          Unfollow
+        </div>
+        <div>
+          Block or report user
+        </div>
+        <hr />
+        <ul>
+          <li><%= @profile_info.user_info["company"] %></li>
+          <li><%= @profile_info.user_info["location"] %></li>
+          <li><%= @profile_info.user_info["email"] %></li>
+          <li><%= @profile_info.user_info["blog"] %></li>
+          <li><%= @profile_info.user_info["created_at"] %></li>
+        </ul>
+        <hr />
+        <h4>Organizations</h4>
+        <p><%= @profile_info.user_info["organizations_url"] %></p>
+
       </aside>
       <article class="repos">
+        <div class="search-bar">
+          <input type="text">
+          <button>Type: All</button>
+          <button>Language: All</button>
+        </div>
+
         <%= @repos.repo_names %>
       </article>
     </main>

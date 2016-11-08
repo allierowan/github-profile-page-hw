@@ -1,8 +1,33 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont;
+}
+
 aside.profile-info {
   width: 25%;
   float: left;
 }
+
 article.repos {
   width: 75%;
   float: left;
+}
+
+img {
+  position: relative;
+  height: 230px;
+  width: 230px;
+}
+
+h1 {
+  margin: auto;
+  font-size: 26px;
+}
+
+h2 {
+  margin: auto;
+  font-size: 20px;
+}
+
+p {
+  margin: auto;
 }
