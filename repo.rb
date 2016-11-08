@@ -1,13 +1,8 @@
 require 'httparty'
+require './github_api'
 
-class Repo
-  attr_reader :username, :repos
-
-  BASE_URI = "https://api.github.com"
-
-  def initialize(username)
-    @username = username
-  end
+class Repo < GithubApi
+  attr_reader :repos
 
   def repos
     @repos ||=  HTTParty.get("#{BASE_URI}/users/#{username}/repos")
