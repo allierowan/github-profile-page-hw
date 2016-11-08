@@ -2,6 +2,7 @@ require "sinatra"
 require "erb"
 require "pry"
 require './repo'
+require './user'
 
 helpers do
   def render_template(filename)
@@ -14,7 +15,8 @@ get "/" do
   render_template("public/index.html.erb")
 end
 
-post "/repos/for" do
+post "/user/repos" do
   @repos = Repo.new(params["username"])
+  @profile_info = User.new(params["username"])
   render_template("public/user_page.html.erb")
 end

@@ -7,7 +7,10 @@
   <body>
     <h1>Github Profile Finder</h1>
     <main>
-      <article>
+      <aside class="profile-info">
+        <%= @profile_info.user_info %>
+      </aside>
+      <article class="repos">
         <%= @repos.repo_names %>
       </article>
     </main>

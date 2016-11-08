@@ -1,0 +1,8 @@
+aside.profile-info {
+  width: 25%;
+  float: left;
+}
+article.repos {
+  width: 75%;
+  float: left;
+}
