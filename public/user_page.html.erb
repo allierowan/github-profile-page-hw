@@ -7,6 +7,10 @@
   </head>
   <body>
     <main>
+      <header>
+        <img class="logo" src="/logo.png">
+        <input class="search-github" type="text">
+      </header>
       <aside class="profile-info">
         <img src= '<%= @profile_info.user_info["avatar_url"] %>' alt="profile picture">
         <h1><%= @profile_info.user_info["name"] %></h1>
@@ -31,13 +35,32 @@
 
       </aside>
       <article class="repos">
+        <nav>
+          <ul>
+            <li class="navbar">Overview</li>
+            <li class="navbar">Respositories <% @repos.repos.size %></li>
+            <li class="navbar">Stars</li>
+            <li class="navbar">Followers </li>
+            <li class="navbar">Following</li>
+          </ul>
+        </nav>
         <div class="search-bar">
           <input type="text">
           <button>Type: All</button>
           <button>Language: All</button>
         </div>
-
-        <%= @repos.repo_names %>
+        <div class="repo-list">
+          <ul>
+            <% @repos.repos.each do |el| %>
+              <li>
+                <div class="repo-name"><a href='<%= el["url"] %>'><%= el["name"] %></a></div>
+                <div class="repo-language"><%= el["language"] %> Updated </div>
+                <div class="repo-updated"><%= el["updated_at"] %></div>
+              </li>
+              <hr />
+            <% end %>
+          </ul>
+        </div>
       </article>
     </main>
   </body>
